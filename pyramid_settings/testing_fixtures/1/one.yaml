@@ -1,0 +1,2 @@
+pyramid_settings.includes: ../2/two.yaml
+one: true

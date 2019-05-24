@@ -1,0 +1,7 @@
+pets:
+ - Cat
+ - Dog
+ - Goldfish
+hello:
+  - This won't be included
+yaml: true

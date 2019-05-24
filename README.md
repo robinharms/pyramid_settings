@@ -22,8 +22,7 @@ Getting Started
 
 - Run your project's tests.
 
-    env/bin/pytest
+    env/bin/nosetests
 
-- Run your project.
 
-    env/bin/pserve development.ini
+FIXME: Actual docs :)

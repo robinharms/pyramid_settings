@@ -25,16 +25,12 @@ class BaseSettingsLoader(object):
         """
         self.logger.debug({'fn': fn, 'k': k, 'v': v})
 
-    def load(self, filename):
-        """ Read and include this. """
-        raise NotImplementedError()  # pragma: no cover
+    def load(self, filename):  # pragma: no cover
+        __doc__ = ISettingsLoader['load'].__doc__
+        raise NotImplementedError()
 
     def update(self, data, filename):
-        """ Update settings dict, keep any existing values to allow override in the default ini file.
-
-            If pyramid_settings.includes is specified in the contained file, include those as well.
-            We'll expect the files to have a relative path compaired to the file that references them
-        """
+        __doc__ = ISettingsLoader['update'].__doc__
         other_includes = data.pop('pyramid_settings.includes', None)
         other_files = data.pop('pyramid_settings.files', None)
         settings = self.config.registry.settings

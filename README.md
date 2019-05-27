@@ -95,7 +95,7 @@ This simple example should give you an idea.
     from pyramid_settings.models import BaseSettingsLoader
 
 
-    class MyJSONPLoader(BaseSettingsLoader):
+    class MySpecialJSONLoader(BaseSettingsLoader):
         """ A custom loader
         """
     
@@ -115,10 +115,11 @@ file ending.
 So when including your package:
 
     def includeme(config):
-        config.registry.registerAdapter(MyJSONLoader, name='jsonp')
+        config.registry.registerAdapter(MySpecialJSONLoader, name='specialjson')
 
 
-The above example would use this adapter for any file ending with 'jsonp'.
+The above example would use this adapter for any file ending with 'specialjson'
+for instance 'mysettings.specialjson'.
     
 Note that this must be done before including pyramid_settings.
 

@@ -1,0 +1,3 @@
+pyramid_settings.files: settings.json
+pyramid_settings.includes:
+  - pyramid_settings.tests

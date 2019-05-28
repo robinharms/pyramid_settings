@@ -30,5 +30,5 @@ def includeme(config):
                                  "before this package, use the default 'pyramid.includes'")
     filenames = config.registry.settings.get('pyramid_settings.files', "").splitlines()
     for fn in filenames:
-        config.load_and_include(fn)
-
+        if fn:
+            config.load_and_include(fn)

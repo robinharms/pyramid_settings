@@ -12,12 +12,12 @@ requires = [
     'pyramid',
     'zope.interface',
     'zope.component',
+    'pyyaml'
 ]
 
 tests_require = [
     'nose',
     'coverage',
-    'pyyaml'
 ]
 
 setup(
@@ -47,7 +47,6 @@ setup(
     zip_safe=False,
     extras_require={
         'testing': tests_require,
-        'yaml': requires + ['pyyaml']
     },
     install_requires=requires,
     entry_points={},

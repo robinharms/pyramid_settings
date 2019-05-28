@@ -30,7 +30,6 @@ and then direct the rest of the configuration to that file.
 
 Your paster-ini file look something like this:
 
-
     pyramid.includes =
         pyramid_settings
         
@@ -39,11 +38,14 @@ Your paster-ini file look something like this:
         development.yaml
         var/secretstuff.yaml
 
-
-Later files will override newer settings.
+Order matters here, so *development.yaml* will overwrite similar values
+within *basics.yaml*.
 
 Your configuration files will be added to the settings dict present
 at registry.settings within Pyramid.
+
+Values prefixed with pyramid_settings won't be overwritten or included
+in the settings var, since they're used by this package.
 
 
 Directives within loaded files
@@ -51,8 +53,6 @@ Directives within loaded files
 
 The included settings file themselves may contain information 
 used load or include other packages as well.
-
-There are two options
 
 **pyramid_settings.files**
 
@@ -78,12 +78,9 @@ And then the referenced file *redis.yaml*
 The pyramid_redis_sessions package will be loaded after the injection
 of the required settings.
 
-Note that references to other files uses relative path from the file that
-references them.
 
-
-Writing your own loader
------------------------
+Advanced: Writing your own loader
+---------------------------------
 
 In case you want other formats than yaml and json, simply subclass
 **pyramid_settings.models.BaseSettingsLoader**.
@@ -131,7 +128,7 @@ config.registry.unregisterAdapter first.
 See the Pyramid docs for more information.
 
 
-Bugs or suggestions
--------------------
+Bugs or suggestions?
+--------------------
 
 https://github.com/robinharms/pyramid_settings
